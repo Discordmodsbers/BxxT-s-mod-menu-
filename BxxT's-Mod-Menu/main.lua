@@ -1,4 +1,7 @@
-modVersion = "V1.0.0"
+include("gui/simple_menu.lua")
+
+
+modVersion = "V2.0.0"
 
 stuffThread = ScriptThread("BxxT's Mod Menu " .. modVersion)
 
@@ -9,10 +12,14 @@ function stuffThread:Run()
 	-- Settings:
 	--Keys can be found in GTALua\internal\extensions\keycodes.lua
 	--Xbox buttons can be found at the last lines of this script.
+	tbl = tbl or {}
+	natives.UI.SET_TEXT_FONT(tbl.Font or 1)
+	natives.UI.SET_TEXT_COLOUR((tbl.Color or Color(255,255,255)):Unpack())
+	natives.UI.SET_TEXT_CENTRE(tbl.Centered or false)
 	stuff.speedBoostKey = KEY_X
 	stuff.speedBoostButton = BUTTON_A
-	stuff.openMenuKey = KEY_F3
-	stuff.openMenuButton = BUTTON_R3
+	stuff.openMenuKey = KEY_F9
+	stuff.openMenuButton = BUTTON_DLEFT and BUTTON_R3
 	
 	-- Enable/disable at startup.
 	stuff.drawMenu = false -- Draw menu on gta startup.
@@ -64,7 +71,7 @@ function stuffThread:Run()
 	stuff.frameDiff = 0
 	
 	stuff.createMenuObject{
-		text = "BxxTs's Mod Menu " .. modVersion,
+		text = "Synapse" .. modVersion,
 		textColor = Color(180, 255, 0),
 		textScale = 0.9
 	}
@@ -137,7 +144,7 @@ function stuffThread:Run()
 	}
 	
 	stuff.createMenuObject{
-		text = "Invincible player: ",
+		text = "God Mode: ",
 		state = "Off",
 		run = function()
 			if stuff.invinciblePlayerEnabled then
