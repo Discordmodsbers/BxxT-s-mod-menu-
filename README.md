@@ -20,7 +20,7 @@ You will need the following: Script Hook V and GTALua
 
 Uh you kinda have to figure out if this menu works on rockstar games and epic games since I only have gta for steam.
 
-# Current version: ``Version 1.0.0``
+# Current version: ``Version 2.0.0``
 
 # Current notes: 
 
